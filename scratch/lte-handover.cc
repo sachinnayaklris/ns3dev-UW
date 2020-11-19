@@ -467,7 +467,7 @@ main (int argc, char *argv[])
   Ptr<SpectrumChannel> dlChannel = lteHelper->GetDownlinkSpectrumChannel ();
   Ptr<SpectrumChannel> ulChannel = lteHelper->GetUplinkSpectrumChannel ();
   // Configure tableLossModel here, by e.g. pointing it to a trace file
-  tableLossModel->initializeTraceVals(numberOfEnbs, numberOfUes, simParameters.at("ResourceBlocks")[0], simTime*1000);
+  /*tableLossModel->initializeTraceVals(numberOfEnbs, numberOfUes, simParameters.at("ResourceBlocks")[0], simTime*1000);
   
   
   
@@ -482,11 +482,11 @@ main (int argc, char *argv[])
   	    //"/home/collin/Downloads/Scenario0.1/","ULDL_Channel_Response_TX_" + std::to_string(j+1) + "_Sector_" + std::to_string(k+1) + "_UE_" + std::to_string(i+1) + "_.txt");// the filepath (first input), must be changed to your local filepath for these trace files
       }
    	}
-  }
+  }*/
 
   Ptr<ConstantSpectrumPropagationLossModel> constantLossModel = CreateObject<ConstantSpectrumPropagationLossModel> ();    
   
-  constantLossModel->SetLossDb(30);
+  constantLossModel->SetLossDb(double(30));
 
   dlChannel->AddSpectrumPropagationLossModel ((constantLossModel));
   
